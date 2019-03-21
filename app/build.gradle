@@ -20,13 +20,9 @@ android {
 }
 
 dependencies {
-    def dependencies = rootProject.ext.deps
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation dependencies.suport.appcompat
-    implementation dependencies.suport.constraint
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-
+    implementation project(':moduleCommon')
+    if(!isDebug.toBoolean()){
+        implementation project(':moduleMain')
+    }
 }
