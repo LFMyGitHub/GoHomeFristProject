@@ -128,8 +128,7 @@
 
 #---------------------------------业务组件实体类---------------------------------
 
--keep class com.guiying.news.data.bean.** {*;}
--keep class com.guiying.girls.data.bean.** {*;}
+-keep class com.example.modulecommon.bean.** {*;}
 
 #---------------------------------第三方库及jar包-------------------------------
 

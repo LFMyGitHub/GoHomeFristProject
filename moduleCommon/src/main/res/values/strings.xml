@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">moduleCommon</string>
+
+    <string name="btn_news">News</string>
+    <string name="btn_girls">Girls</string>
+    <string name="btn_fragment">Fragment</string>
 </resources>
