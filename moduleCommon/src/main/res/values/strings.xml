@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">moduleCommon</string>
+    <string name="app_name">首页导航</string>
 
     <string name="btn_news">News</string>
     <string name="btn_girls">Girls</string>

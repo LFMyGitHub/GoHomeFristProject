@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_titleBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_FF03A9F4"
+    android:orientation="horizontal"
+    android:padding="@dimen/size_3dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/color_FFFFFF"
+        android:textSize="@dimen/text_size_20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/color_FFFFFF"
+        android:textSize="@dimen/text_size_14sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/version_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/title"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/size_10dp"
+        android:layout_marginRight="@dimen/size_10dp"
+        android:textColor="@color/color_FFFFFF"
+        android:textSize="@dimen/text_size_14sp"
+        android:textStyle="bold" />
+</RelativeLayout>

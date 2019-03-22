@@ -1,32 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_F5F5F5"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/size_16dp"
-    android:paddingLeft="@dimen/size_16dp"
-    android:paddingRight="@dimen/size_16dp"
-    android:paddingTop="@dimen/size_16dp"
-    tools:context="com.example.modulemain.MainActivity">
+    tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/news_button"
+    <include layout="@layout/layout_title_bar" />
+
+    <com.youth.banner.Banner
+        android:id="@+id/view_banner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_news" />
+        android:layout_height="@dimen/size_100dp" />
 
-    <Button
-        android:id="@+id/girls_button"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_girls" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/fragment_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_fragment" />
+        <com.example.modulecommon.widget.MyViewPager
+            android:id="@+id/gridViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
+        <LinearLayout
+            android:id="@+id/indicator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/size_10dp"
+            android:gravity="center"
+            android:orientation="horizontal" />
+    </RelativeLayout>
 </LinearLayout>
