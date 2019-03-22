@@ -11,7 +11,9 @@ import android.widget.Toast;
 import com.example.modulebase.http.GlideImageLoader;
 import com.example.modulecommon.base.BaseActivity;
 import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
+import com.youth.banner.transformer.AccordionTransformer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,10 +59,16 @@ public class MainActivity extends BaseActivity implements OnBannerListener {
         //设置banner长宽比为12:5
         mViewBanner.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 (int) (context.getResources().getDisplayMetrics().widthPixels / 2.5f)));
-        mViewBanner.setImages(images)
-                .setImageLoader(new GlideImageLoader())
-                .setOnBannerListener(this)
+        mViewBanner.setImages(images)//设置图片URL
+                .setImageLoader(new GlideImageLoader())//设置图片加载器
+                .setOnBannerListener(this)//设置点击监听
+                .setBannerAnimation(AccordionTransformer.class)//设置滑动动画
+                .setBannerTitles(titles)//设置底部banner标题
+                .setIndicatorGravity(BannerConfig.LEFT)//设置指示器位置与标题同时设置不起作用
                 .start();
+        //设置banner底部指示器样式，必须设置底部标题，否则报错
+        mViewBanner.updateBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
+        //可直接在xml中设置指示器样式
     }
 
     /**
@@ -71,5 +79,19 @@ public class MainActivity extends BaseActivity implements OnBannerListener {
     @Override
     public void OnBannerClick(int position) {
         Toast.makeText(getApplicationContext(), "你点击了：" + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //开始轮播
+        mViewBanner.startAutoPlay();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //结束轮播
+        mViewBanner.stopAutoPlay();
     }
 }
