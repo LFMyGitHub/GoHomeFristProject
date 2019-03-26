@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/item_app_selector">
+
+    <ImageView
+        android:layout_width="@dimen/size_40dp"
+        android:layout_height="@dimen/size_40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/demo_picture" />
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/size_10dp"
+        android:textColor="@color/color_6A6A6A" />
+
+    <View
+        android:id="@+id/right_line"
+        android:layout_width="@dimen/size_1dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@color/color_C5C5C5" />
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size_1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_C5C5C5" />
+
+</RelativeLayout>

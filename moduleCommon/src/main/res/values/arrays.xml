@@ -14,4 +14,52 @@
         <item>己所不欲，勿施于人。——孔子</item>
         <item>嗨购5折不要停</item>
     </array>
+
+    <!--moduleMain应用包名-->
+    <string-array name="default_application_package">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--moduleMain应用title-->
+    <string-array name="default_application_title">
+        <item>demo1</item>
+        <item>demo2</item>
+        <item>demo3</item>
+        <item>demo4</item>
+        <item>demo5</item>
+        <item>demo6</item>
+        <item>demo7</item>
+        <item>demo8</item>
+        <item>demo9</item>
+        <item>demo10</item>
+        <item>demo11</item>
+        <item>demo12</item>
+    </string-array>
+
+    <!--moduleMain应用action-->
+    <string-array name="default_application_action">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
 </resources>
