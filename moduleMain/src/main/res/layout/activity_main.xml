@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_F5F5F5"
+    android:background="@color/color_FFFFFF"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -24,12 +24,12 @@
         android:layout_height="match_parent">
 
         <com.example.modulecommon.widget.MyViewPager
-            android:id="@+id/gridViewPager"
+            android:id="@+id/module_main_view_pager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <LinearLayout
-            android:id="@+id/indicator_layout"
+            android:id="@+id/module_main_indicator_layout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_25dp"
             android:layout_alignParentBottom="true"

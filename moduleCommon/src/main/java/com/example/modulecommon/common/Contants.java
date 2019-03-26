@@ -17,6 +17,7 @@ public class Contants {
     }
 
     public static class ModuleMain {
-        public static final int BANNER_VIEW_NUMBER = 8;
+        public static final int GRIDE_VIEW_COLUMN = 3;
+        public static final int GRIDE_VIEW_NUMBER = 9;
     }
 }
