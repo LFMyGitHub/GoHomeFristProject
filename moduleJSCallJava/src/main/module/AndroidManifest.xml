@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.modulemain">
+    package="com.example.modulejscalljava">
 
-    <!-- if you want to load images from the internet -->
+    <!--添加网络权限-->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- if you want to load images from a file OR from the internet -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <application
-        android:name="debug.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

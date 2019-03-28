@@ -201,6 +201,7 @@ public class MainActivity extends BaseActivity implements OnBannerListener {
     @Override
     public void OnBannerClick(int position) {
         Toast.makeText(getApplicationContext(), "你点击了：" + position, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

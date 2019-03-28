@@ -17,7 +17,7 @@
 
     <!--moduleMain应用包名-->
     <string-array name="default_application_package">
-        <item></item>
+        <item>com.example.modulejscalljava</item>
         <item></item>
         <item></item>
         <item></item>
@@ -49,7 +49,7 @@
 
     <!--moduleMain应用action-->
     <string-array name="default_application_action">
-        <item></item>
+        <item>gohomefristdemo.jscalljava.main</item>
         <item></item>
         <item></item>
         <item></item>

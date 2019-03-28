@@ -24,6 +24,6 @@ dependencies {
     implementation project(':moduleCommon')
     if (!isDebug.toBoolean()) {
         implementation project(':moduleMain')
+        implementation project(':moduleJSCallJava')
     }
-    implementation files('libs/acra-4.5.0.jar')
 }
