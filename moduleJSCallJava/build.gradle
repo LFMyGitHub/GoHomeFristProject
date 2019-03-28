@@ -1,9 +1,12 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
 
+
+
     defaultConfig {
+        applicationId "com.example.modulejscalljava"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
@@ -26,13 +29,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':moduleCommon')
-
-    //banner库
-    api 'com.youth.banner:banner:1.4.10'
-    //图片加载库
-    api 'com.github.bumptech.glide:glide:3.7.0'
-    api 'com.facebook.fresco:fresco:0.12.0'
-    //js调用android原生方法库
-    api 'com.github.lzyzsd:jsbridge:1.0.4'
-
+    implementation project(':moduleBase')
 }

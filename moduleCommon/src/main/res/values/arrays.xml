@@ -33,7 +33,7 @@
 
     <!--moduleMain应用title-->
     <string-array name="default_application_title">
-        <item>demo1</item>
+        <item>JSCallJava</item>
         <item>demo2</item>
         <item>demo3</item>
         <item>demo4</item>
