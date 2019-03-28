@@ -6,3 +6,6 @@ https://github.com/youth5201314/banner
 
 JsBridge
 https://github.com/lzyzsd/JsBridge
+
+ARouter
+https://github.com/alibaba/ARouter
