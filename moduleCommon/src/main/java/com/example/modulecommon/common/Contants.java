@@ -20,4 +20,11 @@ public class Contants {
         public static final int GRIDE_VIEW_COLUMN = 3;
         public static final int GRIDE_VIEW_NUMBER = 9;
     }
+
+
+    public static class ModuleJSCallJava {
+        //assets下的文件的test.html所在的绝对路径
+        public static final String DEFAULT_URL = "file:///android_asset/test.html";
+        //public static final String DEFAULT_URL = "https://61.240.234.60/js/test.html";
+    }
 }

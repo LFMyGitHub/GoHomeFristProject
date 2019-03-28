@@ -1,1 +1,1 @@
-include ':app', ':moduleBase', ':moduleCommon', ':moduleMain'
+include ':app', ':moduleBase', ':moduleCommon', ':moduleMain', ':moduleJSCallJava'
