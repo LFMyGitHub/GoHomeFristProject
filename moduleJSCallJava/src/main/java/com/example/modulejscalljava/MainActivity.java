@@ -9,11 +9,14 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.modulebase.arouter.JSToAndroid;
 import com.example.modulecommon.base.BaseActivity;
+import com.example.modulecommon.common.ARouteContants;
 import com.example.modulecommon.common.Contants;
-import com.example.modulecommon.utils.JSToAndroid;
 import com.github.lzyzsd.jsbridge.BridgeWebView;
 
+@Route(path = ARouteContants.ModuleJSCallJava.MAIN_ACTIVITY)
 public class MainActivity extends BaseActivity {
     private BridgeWebView bridgeWebView;
     private ProgressBar mProgressBar;
@@ -21,7 +24,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_js_call_java_main);
 
         initView();
         initWebView();

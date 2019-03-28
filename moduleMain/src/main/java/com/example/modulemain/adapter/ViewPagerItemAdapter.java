@@ -11,9 +11,11 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.modulecommon.BuildConfig;
 import com.example.modulecommon.bean.modulemain.AppBean;
+import com.example.modulecommon.common.ARouteContants;
 import com.example.modulemain.R;
 
 import java.util.ArrayList;
@@ -79,7 +81,16 @@ public class ViewPagerItemAdapter extends BaseAdapter {
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, appBean.getTitle(), Toast.LENGTH_SHORT).show();
+                /**
+                 * 发起路由跳转
+                 * 判断是组件开发模式还是集成开发模式
+                 * 组件开发模式路由无法跳转到其它模块(因为每一个组件在该模式下相当于一个apk)
+                 */
+                if (BuildConfig.ISDEBUG.equals("true")) {
+                    ARouter.getInstance().build(ARouteContants.ModuleMain.MAIN_ACTIVITY).navigation();
+                }else {
+                    ARouter.getInstance().build(ARouteContants.ModuleJSCallJava.MAIN_ACTIVITY).navigation();
+                }
             }
         });
         return convertView;

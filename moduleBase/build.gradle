@@ -11,6 +11,12 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
+            }
+        }
+
     }
 
     buildTypes {
@@ -34,5 +40,6 @@ dependencies {
     api 'com.facebook.fresco:fresco:0.12.0'
     //js调用android原生方法库
     api 'com.github.lzyzsd:jsbridge:1.0.4'
-
+    //ARouter阿里路由
+    api 'com.alibaba:arouter-api:1.4.1'
 }

@@ -13,9 +13,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.modulebase.http.GlideImageLoader;
 import com.example.modulecommon.base.BaseActivity;
 import com.example.modulecommon.bean.modulemain.AppBean;
+import com.example.modulecommon.common.ARouteContants;
 import com.example.modulecommon.common.Contants;
 import com.example.modulecommon.utils.ListUtils;
 import com.example.modulecommon.widget.MyViewPager;
@@ -30,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Route(path = ARouteContants.ModuleMain.MAIN_ACTIVITY)
 public class MainActivity extends BaseActivity implements OnBannerListener {
     //当前viewpager页码
     private static final int DEFAULT_PAGE = 0;
@@ -201,7 +204,6 @@ public class MainActivity extends BaseActivity implements OnBannerListener {
     @Override
     public void OnBannerClick(int position) {
         Toast.makeText(getApplicationContext(), "你点击了：" + position, Toast.LENGTH_SHORT).show();
-
     }
 
     @Override
