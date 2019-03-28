@@ -55,7 +55,7 @@ public class ViewPagerItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final Holder holder;
         if (convertView == null) {
             holder = new Holder();
@@ -81,15 +81,21 @@ public class ViewPagerItemAdapter extends BaseAdapter {
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /**
-                 * 发起路由跳转
-                 * 判断是组件开发模式还是集成开发模式
-                 * 组件开发模式路由无法跳转到其它模块(因为每一个组件在该模式下相当于一个apk)
-                 */
-                if (BuildConfig.ISDEBUG.equals("true")) {
-                    ARouter.getInstance().build(ARouteContants.ModuleMain.MAIN_ACTIVITY).navigation();
-                }else {
-                    ARouter.getInstance().build(ARouteContants.ModuleJSCallJava.MAIN_ACTIVITY).navigation();
+                if(appBean.getPackageName().equals("com.example.modulejscalljava")){//路由跳转
+                    /**
+                     * 发起路由跳转
+                     * 判断是组件开发模式还是集成开发模式
+                     * 组件开发模式路由无法跳转到其它模块(因为每一个组件在该模式下相当于一个apk)
+                     */
+                    if (BuildConfig.ISDEBUG.equals("true")) {
+                        ARouter.getInstance().build(ARouteContants.ModuleMain.MAIN_ACTIVITY).navigation();
+                    }else {
+                        ARouter.getInstance().build(ARouteContants.ModuleJSCallJava.MAIN_ACTIVITY).navigation();
+                    }
+                }else if(appBean.getPackageName().equals("com.tencent.mobileqq")){//包名跳转
+                    mContext.startActivity(mContext.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq"));
+                }else {//action跳转
+
                 }
             }
         });

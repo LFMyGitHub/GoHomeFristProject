@@ -18,7 +18,7 @@
     <!--moduleMain应用包名-->
     <string-array name="default_application_package">
         <item>com.example.modulejscalljava</item>
-        <item></item>
+        <item>com.tencent.mobileqq</item>
         <item></item>
         <item></item>
         <item></item>
@@ -34,7 +34,7 @@
     <!--moduleMain应用title-->
     <string-array name="default_application_title">
         <item>JSCallJava</item>
-        <item>demo2</item>
+        <item>QQ(包名打开)</item>
         <item>demo3</item>
         <item>demo4</item>
         <item>demo5</item>
