@@ -19,7 +19,7 @@ import com.example.modulecommon.base.BaseActivity;
 import com.example.modulecommon.bean.modulemain.AppBean;
 import com.example.modulecommon.common.ARouteContants;
 import com.example.modulecommon.common.Contants;
-import com.example.modulecommon.utils.ListUtils;
+import com.example.modulecommon.utils.ListUtil;
 import com.example.modulecommon.widget.MyViewPager;
 import com.example.modulemain.adapter.ViewPagerAdapter;
 import com.example.modulemain.adapter.ViewPagerItemAdapter;
@@ -95,7 +95,7 @@ public class MainActivity extends BaseActivity implements OnBannerListener {
             appBean.setAction(applicationActions[i]);
             defaultAppModels.add(appBean);
         }
-        appItems = ListUtils.getSubList(defaultAppModels, Contants.ModuleMain.GRIDE_VIEW_NUMBER);
+        appItems = ListUtil.getSubList(defaultAppModels, Contants.ModuleMain.GRIDE_VIEW_NUMBER);
         appPages = new ArrayList<>();
     }
 

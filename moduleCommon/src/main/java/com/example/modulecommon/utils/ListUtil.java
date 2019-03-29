@@ -5,7 +5,7 @@ import com.example.modulecommon.bean.modulemain.AppBean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListUtils {
+public class ListUtil {
     /**
      * 按照每一页的个数即size，拆分为若干个子list
      *

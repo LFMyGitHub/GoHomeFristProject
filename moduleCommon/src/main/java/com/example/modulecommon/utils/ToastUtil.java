@@ -1,4 +1,4 @@
 package com.example.modulecommon.utils;
 
-public class DimenUtils {
+public class ToastUtil {
 }

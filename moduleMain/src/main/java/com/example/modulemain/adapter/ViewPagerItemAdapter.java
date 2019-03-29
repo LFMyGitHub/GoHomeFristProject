@@ -3,6 +3,7 @@ package com.example.modulemain.adapter;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +14,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.modulebase.http.HttpManager;
+import com.example.modulebase.http.HttpResponseSubscriber;
+import com.example.modulebase.http.RpcHelper;
 import com.example.modulecommon.BuildConfig;
 import com.example.modulecommon.bean.modulemain.AppBean;
 import com.example.modulecommon.common.ARouteContants;
+import com.example.modulecommon.exception.HttpThrowable;
 import com.example.modulemain.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class ViewPagerItemAdapter extends BaseAdapter {
     private Context mContext;
@@ -73,15 +83,15 @@ public class ViewPagerItemAdapter extends BaseAdapter {
 
         final AppBean appBean = mInfoList.get(position);
         holder.appName.setText(appBean.getTitle());
-        if(!TextUtils.isEmpty(appBean.getIcon())){
+        if (!TextUtils.isEmpty(appBean.getIcon())) {
             //通过URL加载图片
-        }else {
+        } else {
             //设置默认图片
         }
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(appBean.getPackageName().equals("com.example.modulejscalljava")){//路由跳转
+                if (appBean.getPackageName().equals("com.example.modulejscalljava")) {//路由跳转
                     /**
                      * 发起路由跳转
                      * 判断是组件开发模式还是集成开发模式
@@ -89,13 +99,27 @@ public class ViewPagerItemAdapter extends BaseAdapter {
                      */
                     if (BuildConfig.ISDEBUG.equals("true")) {
                         ARouter.getInstance().build(ARouteContants.ModuleMain.MAIN_ACTIVITY).navigation();
-                    }else {
+                    } else {
                         ARouter.getInstance().build(ARouteContants.ModuleJSCallJava.MAIN_ACTIVITY).navigation();
                     }
-                }else if(appBean.getPackageName().equals("com.tencent.mobileqq")){//包名跳转
+                } else if (appBean.getPackageName().equals("com.tencent.mobileqq")) {//包名跳转
                     mContext.startActivity(mContext.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq"));
-                }else {//action跳转
+                } else {//action跳转
+                    HttpManager.getInstance().getHttpService().testHttp("api/data/Android/10/1")
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(new HttpResponseSubscriber<String>() {
 
+                                @Override
+                                public void onSuccess(String result) {
+                                    Log.i("TAG", result);
+                                }
+
+                                @Override
+                                public void _onError(HttpThrowable e) {
+
+                                }
+                            });
                 }
             }
         });
