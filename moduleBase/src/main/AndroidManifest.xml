@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.modulebase">
 
-    <application android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+    <application android:theme="@style/Theme.AppCompat.NoActionBar">
         <meta-data
             android:name="MTA_CHANNEL"
             android:value="${MTA_CHANNEL_VALUE}"/>

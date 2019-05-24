@@ -244,4 +244,5 @@
     <dimen name="size_200dp">200.0dip</dimen>
     <dimen name="size_240dp">240.0dip</dimen>
     <dimen name="size_260dp">260.0dip</dimen>
+    <dimen name="size_360dp">360.0dip</dimen>
 </resources>

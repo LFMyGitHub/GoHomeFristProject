@@ -4,7 +4,7 @@
 
     <application
         android:name=".MyApplication"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
 
         <!--发送崩溃日志界面-->
         <activity

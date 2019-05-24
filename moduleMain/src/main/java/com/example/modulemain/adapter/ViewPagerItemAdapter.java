@@ -1,7 +1,9 @@
 package com.example.modulemain.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -104,6 +106,8 @@ public class ViewPagerItemAdapter extends BaseAdapter {
                     }
                 } else if (appBean.getPackageName().equals("com.tencent.mobileqq")) {//包名跳转
                     mContext.startActivity(mContext.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq"));
+                } else if(appBean.getPackageName().equals("URI")){
+                    ARouter.getInstance().build(ARouteContants.ModuleMain.DIALOG_ACTIVITY).navigation();
                 } else {//action跳转
                     HttpManager.getInstance().getHttpService().testHttp("api/data/Android/10/1")
                             .subscribeOn(Schedulers.io())
