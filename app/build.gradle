@@ -9,6 +9,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        flavorDimensions "default"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         javaCompileOptions {
@@ -21,6 +22,25 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors{
+        //官方包
+        serviceId {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "L212547"]
+        }
+        oppo {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "L213093"]
+        }
+        vivo {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "L213092"]
+        }
+        xiaomi {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "L213091"]
+        }
+        huawei {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "L213090"]
         }
     }
 }
