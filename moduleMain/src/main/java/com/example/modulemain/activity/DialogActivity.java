@@ -39,7 +39,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
             btnMdLoading, btnMdAlert, btnTieAlert, btnBottomSheetCancel, btnCenterSheet,
             btnAlertInput, btnAlertMultichoose, btnAlertSinglechoose, btnMdBottomVertical,
             btnMdBottomHorizontal, btnToastTop, btnToastCenter, btnToast, btnSelectYmd,
-            btnSelectYmdhm,btnSelectYmdhms;
+            btnSelectYmdhm, btnSelectYmdhms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +121,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
 
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int position) {
+                    showToast(position + "");
                 }
             });
         } else if (i == R.id.btn_custom_alert) {
@@ -164,7 +165,10 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
             DialogUIUtils.showMdMultiChoose(mActivity, "标题", words, choseDefault, new DialogUIListener() {
                 @Override
                 public void onPositive() {
+                }
 
+                @Override
+                public void onGetChoose(boolean[] states) {
                 }
 
                 @Override

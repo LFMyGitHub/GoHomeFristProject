@@ -278,7 +278,8 @@ public class Buildable {
                 .setMultiChoiceItems(bean.wordsMd, bean.checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i, boolean b) {
-
+                        bean.checkedItems[i] = b;
+                        bean.listener.onGetChoose(bean.checkedItems);
                     }
                 })
         ;
