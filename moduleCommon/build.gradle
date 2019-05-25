@@ -6,7 +6,7 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -56,4 +56,6 @@ dependencies {
 
     //Logger
     api 'com.orhanobut:logger:1.15'
+    //添加权限
+    api 'com.hjq:xxpermissions:5.0'
 }

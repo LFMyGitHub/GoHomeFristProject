@@ -106,8 +106,10 @@ public class ViewPagerItemAdapter extends BaseAdapter {
                     }
                 } else if (appBean.getPackageName().equals("com.tencent.mobileqq")) {//包名跳转
                     mContext.startActivity(mContext.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq"));
-                } else if(appBean.getPackageName().equals("Dialog")){
+                } else if (appBean.getPackageName().equals("Dialog")) {
                     ARouter.getInstance().build(ARouteContants.ModuleMain.DIALOG_ACTIVITY).navigation();
+                } else if (appBean.getPackageName().equals("Camera")) {
+                    ARouter.getInstance().build(ARouteContants.ModuleMain.CAMERA_ACTIVITY).navigation();
                 } else {//action跳转
                     HttpManager.getInstance().getHttpService().testHttp("api/data/Android/10/1")
                             .subscribeOn(Schedulers.io())

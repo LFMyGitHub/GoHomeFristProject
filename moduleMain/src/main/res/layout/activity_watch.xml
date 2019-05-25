@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.WatchActivity">
+
+    <Button
+        android:id="@+id/watch_shoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="调用系统相机拍摄视频" />
+
+    <Button
+        android:id="@+id/watch_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="调用系统相机拍照" />
+
+    <Button
+        android:id="@+id/ffmpeg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FFmpeg压缩" />
+
+    <TextView
+        android:id="@+id/tv_ffmpeg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_5dp"
+        android:background="@color/color_F5F5F5"
+        android:padding="@dimen/size_5dp"
+        android:text="@string/app_name" />
+
+    <Button
+        android:id="@+id/mp4praser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="mp4praser压缩" />
+
+    <Button
+        android:id="@+id/MediaCodec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MediaCodec压缩" />
+</LinearLayout>

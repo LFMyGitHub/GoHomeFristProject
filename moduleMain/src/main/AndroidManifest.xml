@@ -3,8 +3,7 @@
     package="com.example.modulemain">
 
     <application android:theme="@style/Theme.AppStartLoadTranslucent">
-        <activity
-            android:name=".MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -12,6 +11,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.DialogActivity" />
+        <activity android:name=".activity.WatchActivity"></activity>
     </application>
 
 </manifest>
