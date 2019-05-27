@@ -110,6 +110,8 @@ public class ViewPagerItemAdapter extends BaseAdapter {
                     ARouter.getInstance().build(ARouteContants.ModuleMain.DIALOG_ACTIVITY).navigation();
                 } else if (appBean.getPackageName().equals("Camera")) {
                     ARouter.getInstance().build(ARouteContants.ModuleMain.CAMERA_ACTIVITY).navigation();
+                } else if (appBean.getPackageName().equals("MyCamera")) {
+                    ARouter.getInstance().build(ARouteContants.ModuleMain.MY_CAMERA_ACTIVITY).navigation();
                 } else {//action跳转
                     HttpManager.getInstance().getHttpService().testHttp("api/data/Android/10/1")
                             .subscribeOn(Schedulers.io())
