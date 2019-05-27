@@ -22,7 +22,6 @@ import com.example.modulecommon.utils.GetPathFromUri;
 import com.example.modulecommon.utils.StringUtil;
 import com.example.modulecommon.utils.mediacodec.VideoCompress;
 import com.example.modulecommon.widget.dialog.widget.CustomProgressDialog;
-import com.example.modulemain.MainActivity;
 import com.example.modulemain.R;
 import com.example.modulemain.inter.CompressListener;
 import com.example.modulemain.inter.InitListener;
@@ -31,8 +30,6 @@ import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.XXPermissions;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
