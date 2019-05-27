@@ -20,7 +20,9 @@ import com.example.modulecommon.common.ARouteContants;
 import com.example.modulecommon.utils.FileUtils;
 import com.example.modulecommon.utils.GetPathFromUri;
 import com.example.modulecommon.utils.StringUtil;
+import com.example.modulecommon.utils.mediacodec.VideoCompress;
 import com.example.modulecommon.widget.dialog.widget.CustomProgressDialog;
+import com.example.modulemain.MainActivity;
 import com.example.modulemain.R;
 import com.example.modulemain.inter.CompressListener;
 import com.example.modulemain.inter.InitListener;
@@ -29,6 +31,8 @@ import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.XXPermissions;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -89,8 +93,8 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initFile() {
-        if(!FileUtils.makeRootDirectory(VIDEO_PATH) || !FileUtils.makeRootDirectory(IMG_PATH)){
-            Toast.makeText(this,"文件夹创建失败",Toast.LENGTH_SHORT).show();
+        if (!FileUtils.makeRootDirectory(VIDEO_PATH) || !FileUtils.makeRootDirectory(IMG_PATH)) {
+            Toast.makeText(this, "文件夹创建失败", Toast.LENGTH_SHORT).show();
         }
         currentOutputVideoPath = VIDEO_PATH + GetPathFromUri.getVideoFileName();
     }
@@ -135,9 +139,12 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
             intent.addCategory(Intent.CATEGORY_DEFAULT);
             startActivityForResult(intent, 1001);
         } else if (i == R.id.ffmpeg) {
+            //FFmpeg压缩视频
             startCompress(mVideoPath);
         } else if (i == R.id.mp4praser) {
+
         } else if (i == R.id.MediaCodec) {
+            startMediaCodec(mVideoPath);
         }
     }
 
@@ -297,5 +304,32 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
             videoLength = 0.00;
             finish();
         }
+    }
+
+    private void startMediaCodec(String videoPath) {
+        VideoCompress.compressVideoLow(videoPath, VIDEO_PATH + GetPathFromUri.getVideoFileName(), new VideoCompress.CompressListener() {
+            @Override
+            public void onStart() {
+                mProcessingDialog.show();
+                mProcessingDialog.setProgress(0);
+            }
+
+            @Override
+            public void onSuccess() {
+                mProcessingDialog.dismiss();
+                Toast.makeText(WatchActivity.this, "Compress Success!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFail() {
+                mProcessingDialog.dismiss();
+                Toast.makeText(WatchActivity.this, "Compress Failed!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onProgress(float percent) {
+                mProcessingDialog.setProgress((int) percent);
+            }
+        });
     }
 }

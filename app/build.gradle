@@ -43,6 +43,19 @@ android {
             manifestPlaceholders = [MTA_CHANNEL_VALUE: "L213090"]
         }
     }
+
+    sourceSets {
+        main {
+            if (isDebug.toBoolean()) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
 }
 
 dependencies {

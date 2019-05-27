@@ -23,7 +23,7 @@ public class FileUtils {
             if (!file.exists()) {
                 return file.mkdirs();
             } else {
-                return false;
+                return true;
             }
         } catch (Exception e) {
             return false;
