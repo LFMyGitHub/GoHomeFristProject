@@ -1,11 +1,21 @@
 package com.example.modulecommon.common;
 
+import android.os.Environment;
+
 import com.example.modulecommon.R;
 
 /**
  * 静态常量
  */
 public class Contants {
+    public static class Common {
+        /**
+         * 工程视频占用手机目录
+         */
+        public static final String PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/mydemo/";
+        public static final String VIDEO_PATH = PATH + "video/";
+        public static final String IMG_PATH = PATH + "img/";
+    }
 
     public static class AppIcon {
         public static final int[] icons = new int[]{R.mipmap.jxt_app_unicom_coupons_icon, R.mipmap.jxt_app_unicom_card_icon,

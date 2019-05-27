@@ -135,4 +135,11 @@ public class GetPathFromUri {
                 "yyyyMMddHHmmss");
         return "android_" + dateFormat.format(date) + (int) ((Math.random() * 9 + 1) * 10000) + ".mp4";
     }
+
+    public static String getImgFileName() {
+        Date date = new Date(System.currentTimeMillis());// 获取当前的系统的时间
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "yyyyMMddHHmmss");
+        return "android_" + dateFormat.format(date) + (int) ((Math.random() * 9 + 1) * 10000) + ".jpg";
+    }
 }
