@@ -88,7 +88,7 @@
         android:visibility="gone">
     </FrameLayout>
 
-    <com.dou361.dialogui.widget.DateSelectorWheelView
+    <com.example.modulecommon.widget.dialog.widget.DateSelectorWheelView
         android:id="@+id/dwv_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
