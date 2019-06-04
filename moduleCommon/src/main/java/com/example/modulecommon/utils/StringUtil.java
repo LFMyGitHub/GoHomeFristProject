@@ -30,11 +30,11 @@ public class StringUtil {
         switch (type) {
             case 1:
                 waterMarkCmd = "-y -i %s -i %s -filter_complex overlay=0:0 -strict -2 -vcodec libx264 -preset superfast " +
-                        "-crf 24 -acodec libmp3lame -ar 44100 -ac 2 -b:a 96k -s 480x800 -aspect 9:16 %s";
+                        "-crf 23 -acodec libmp3lame -ar 44100 -ac 2 -b:a 96k -s 480x800 -aspect 9:16 %s";
                 break;
             case 2:
                 waterMarkCmd = "-y -i %s -i %s -filter_complex overlay=0:0 -strict -2 -vcodec libx264 -preset superfast " +
-                        "-crf 24 -acodec libmp3lame -ar 44100 -ac 2 -b:a 96k -s 800x480 -aspect 16:9 %s";
+                        "-crf 23 -acodec libmp3lame -ar 44100 -ac 2 -b:a 96k -s 800x480 -aspect 16:9 %s";
                 break;
             default:
                 break;
