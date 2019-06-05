@@ -126,4 +126,11 @@ public class FileUtils {
         }
         return true;
     }
+
+    public static int getResource(Context context, String imageName) {
+        Context ctx = context;
+        int resId = context.getResources().getIdentifier(imageName, "mipmap", ctx.getPackageName());
+        //如果没有在"mipmap"下找到imageName,将会返回0
+        return resId;
+    }
 }

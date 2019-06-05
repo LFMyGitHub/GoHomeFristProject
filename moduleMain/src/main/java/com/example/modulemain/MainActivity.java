@@ -88,11 +88,13 @@ public class MainActivity extends BaseActivity implements OnBannerListener {
         String[] applicationPackagesName = this.getResources().getStringArray(R.array.default_application_package);
         String[] applicationTitle = this.getResources().getStringArray(R.array.default_application_title);
         String[] applicationActions = this.getResources().getStringArray(R.array.default_application_action);
+        String[] applicationIcons = this.getResources().getStringArray(R.array.default_application_icon);
         for (int i = 0; i < applicationPackagesName.length; i++) {
             AppBean appBean = new AppBean();
             appBean.setPackageName(applicationPackagesName[i]);
             appBean.setTitle(applicationTitle[i]);
             appBean.setAction(applicationActions[i]);
+            appBean.setIcon(applicationIcons[i]);
             defaultAppModels.add(appBean);
         }
         appItems = ListUtil.getSubList(defaultAppModels, Contants.ModuleMain.GRIDE_VIEW_NUMBER);

@@ -23,6 +23,7 @@ import com.example.modulecommon.BuildConfig;
 import com.example.modulecommon.bean.modulemain.AppBean;
 import com.example.modulecommon.common.ARouteContants;
 import com.example.modulecommon.exception.HttpThrowable;
+import com.example.modulecommon.utils.FileUtils;
 import com.example.modulemain.R;
 
 import java.util.ArrayList;
@@ -87,8 +88,10 @@ public class ViewPagerItemAdapter extends BaseAdapter {
         holder.appName.setText(appBean.getTitle());
         if (!TextUtils.isEmpty(appBean.getIcon())) {
             //通过URL加载图片
+            holder.appIcon.setBackgroundResource(FileUtils.getResource(mContext, appBean.getIcon()));
         } else {
             //设置默认图片
+            holder.appIcon.setBackgroundResource(R.mipmap.ic_launcher);
         }
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
