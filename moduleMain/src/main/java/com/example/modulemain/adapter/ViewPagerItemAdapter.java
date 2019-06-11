@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.modulebase.http.GlideImageLoader;
 import com.example.modulebase.http.HttpManager;
 import com.example.modulebase.http.HttpResponseSubscriber;
 import com.example.modulebase.http.RpcHelper;
@@ -86,11 +87,13 @@ public class ViewPagerItemAdapter extends BaseAdapter {
 
         final AppBean appBean = mInfoList.get(position);
         holder.appName.setText(appBean.getTitle());
-        if (!TextUtils.isEmpty(appBean.getIcon())) {
+        if (appBean.getIcon().startsWith("https")) {
             //通过URL加载图片
-            holder.appIcon.setBackgroundResource(FileUtils.getResource(mContext, appBean.getIcon()));
-        } else {
+            GlideImageLoader.displayCircleImage(mContext, appBean.getIcon(), holder.appIcon);
+        } else if(!TextUtils.isEmpty(appBean.getIcon())) {
             //设置默认图片
+            holder.appIcon.setBackgroundResource(FileUtils.getResource(mContext, appBean.getIcon()));
+        }else {
             holder.appIcon.setBackgroundResource(R.mipmap.ic_launcher);
         }
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
