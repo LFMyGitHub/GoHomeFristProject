@@ -128,7 +128,7 @@ public class ViewPagerItemAdapter extends BaseAdapter {
 
                                 @Override
                                 public void _onError(HttpThrowable e) {
-
+                                    Log.i("TAG", "error");
                                 }
                             });
                 }
