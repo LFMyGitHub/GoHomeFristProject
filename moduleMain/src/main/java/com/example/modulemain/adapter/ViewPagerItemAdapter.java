@@ -89,11 +89,11 @@ public class ViewPagerItemAdapter extends BaseAdapter {
         holder.appName.setText(appBean.getTitle());
         if (appBean.getIcon().startsWith("https")) {
             //通过URL加载图片
-            GlideImageLoader.displayCircleImage(mContext, appBean.getIcon(), holder.appIcon);
-        } else if(!TextUtils.isEmpty(appBean.getIcon())) {
+            GlideImageLoader.displayCircleImage(mContext, appBean.getIcon(), R.mipmap.ic_launcher, holder.appIcon, 1);
+        } else if (!TextUtils.isEmpty(appBean.getIcon())) {
             //设置默认图片
-            holder.appIcon.setBackgroundResource(FileUtils.getResource(mContext, appBean.getIcon()));
-        }else {
+            GlideImageLoader.displayCircleImage(mContext, FileUtils.getResource(mContext, appBean.getIcon()), R.mipmap.ic_launcher, holder.appIcon, 2);
+        } else {
             holder.appIcon.setBackgroundResource(R.mipmap.ic_launcher);
         }
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
