@@ -36,10 +36,12 @@ dependencies {
     //banner库
     api 'com.youth.banner:banner:1.4.10'
     //图片加载库
-    api 'com.github.bumptech.glide:glide:3.7.0'
+    api 'com.github.bumptech.glide:glide:4.9.0'
     api 'com.facebook.fresco:fresco:0.12.0'
     //js调用android原生方法库
     api 'com.github.lzyzsd:jsbridge:1.0.4'
     //ARouter阿里路由
     api 'com.alibaba:arouter-api:1.4.1'
+    //图片视频选择器
+    api 'com.lcw.library:imagepicker:2.2.1'
 }

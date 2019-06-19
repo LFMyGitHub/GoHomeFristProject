@@ -50,8 +50,7 @@ public class GlideImageLoader extends ImageLoader {
         }
         Glide.with(context.getApplicationContext())
                 .load(path)
-                .transform(new GlideCircleTransform(context))
-                .crossFade()
+                .transform(new GlideCircleTransform())
                 .error(errResID)
                 .into(imageView);
     }

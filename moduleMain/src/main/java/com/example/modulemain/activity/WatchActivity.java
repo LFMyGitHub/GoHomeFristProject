@@ -16,20 +16,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.modulebase.utils.GlideLoader;
 import com.example.modulecommon.common.ARouteContants;
 import com.example.modulecommon.utils.FileUtils;
 import com.example.modulecommon.utils.GetPathFromUri;
 import com.example.modulecommon.utils.StringUtil;
 import com.example.modulecommon.utils.mediacodec.VideoCompress;
 import com.example.modulecommon.widget.dialog.widget.CustomProgressDialog;
+import com.example.modulemain.MainActivity;
 import com.example.modulemain.R;
 import com.example.modulemain.inter.CompressListener;
 import com.example.modulemain.inter.InitListener;
 import com.example.modulemain.utils.Compressor;
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.XXPermissions;
+import com.lcw.library.imagepicker.ImagePicker;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -43,10 +47,13 @@ import static com.example.modulecommon.utils.GetPathFromUri.getImgFileName;
  */
 @Route(path = ARouteContants.ModuleMain.CAMERA_ACTIVITY)
 public class WatchActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final int REQUEST_SELECT_IMAGES_CODE = 0x01;
     private Button mBtnWatchPhoto;
     private Button mBtnWatchShoot;
     private Button mBtnFFmpeg;
+    private Button mImageOrVideoPicker;
     private TextView mTvFFmpeg;
+    private TextView mTvImageOrVideoPicker;
     private Button mBtnmp4praser;
     private Button mBtnMediaCodec;
     private String currentOutputVideoPath = "";//压缩后的视频地址
@@ -59,6 +66,8 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
     private Double videoLength = 0.00;//视频时长 s
     private String mVideoPath = "";//原视频地址
     private String mStrFFmpeg;
+    //保存上一次选择图片的状态
+    private ArrayList<String> mImagePaths;
 
 
     @Override
@@ -79,6 +88,8 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
         mTvFFmpeg = findViewById(R.id.tv_ffmpeg);
         mBtnmp4praser = findViewById(R.id.mp4praser);
         mBtnMediaCodec = findViewById(R.id.MediaCodec);
+        mImageOrVideoPicker = findViewById(R.id.image_or_video_picker);
+        mTvImageOrVideoPicker = findViewById(R.id.tv_image_or_video_picker);
     }
 
     private void initListener() {
@@ -87,6 +98,7 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
         mBtnFFmpeg.setOnClickListener(this);
         mBtnmp4praser.setOnClickListener(this);
         mBtnMediaCodec.setOnClickListener(this);
+        mImageOrVideoPicker.setOnClickListener(this);
     }
 
     private void initFile() {
@@ -142,6 +154,18 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
 
         } else if (i == R.id.MediaCodec) {
             startMediaCodec(mVideoPath);
+        } else if (i == R.id.image_or_video_picker) {
+            ImagePicker.getInstance()
+                    .setTitle("标题")//设置标题
+                    .showCamera(true)//设置是否显示拍照按钮
+                    .showImage(true)//设置是否展示图片
+                    .showVideo(true)//设置是否展示视频
+                    .showVideo(true)//设置是否展示视频
+                    .setSingleType(true)//设置图片视频不能同时选择
+                    .setMaxCount(9)//设置最大选择图片数目(默认为1，单选)
+                    .setImagePaths(mImagePaths)//保存上一次选择图片的状态，如果不需要可以忽略
+                    .setImageLoader(new GlideLoader(this))//设置自定义图片加载器
+                    .start(WatchActivity.this, REQUEST_SELECT_IMAGES_CODE);//REQEST_SELECT_IMAGES_CODE为Intent调用的requestCode
         }
     }
 
@@ -157,6 +181,14 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
             } else if (resultCode == RESULT_CANCELED) {
 
             }
+        } else if (requestCode == REQUEST_SELECT_IMAGES_CODE && resultCode == RESULT_OK) {
+            mImagePaths = data.getStringArrayListExtra(ImagePicker.EXTRA_SELECT_IMAGES);
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append("当前选中图片路径：\n\n");
+            for (int i = 0; i < mImagePaths.size(); i++) {
+                stringBuffer.append(mImagePaths.get(i) + "\n\n");
+            }
+            mTvImageOrVideoPicker.setText(stringBuffer.toString());
         }
     }
 
