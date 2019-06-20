@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.modulebase.utils.GlideLoader;
 import com.example.modulecommon.common.ARouteContants;
 import com.example.modulecommon.utils.FileUtils;
@@ -49,6 +50,7 @@ import static com.example.modulecommon.utils.GetPathFromUri.getImgFileName;
 public class WatchActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int REQUEST_SELECT_IMAGES_CODE = 0x01;
     private Button mBtnWatchPhoto;
+    private Button mBtnMyWatchPhoto;
     private Button mBtnWatchShoot;
     private Button mBtnFFmpeg;
     private Button mImageOrVideoPicker;
@@ -83,6 +85,7 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
 
     private void initView() {
         mBtnWatchPhoto = findViewById(R.id.watch_photo);
+        mBtnMyWatchPhoto = findViewById(R.id.mywatch_shoot);
         mBtnWatchShoot = findViewById(R.id.watch_shoot);
         mBtnFFmpeg = findViewById(R.id.ffmpeg);
         mTvFFmpeg = findViewById(R.id.tv_ffmpeg);
@@ -94,6 +97,7 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
 
     private void initListener() {
         mBtnWatchPhoto.setOnClickListener(this);
+        mBtnMyWatchPhoto.setOnClickListener(this);
         mBtnWatchShoot.setOnClickListener(this);
         mBtnFFmpeg.setOnClickListener(this);
         mBtnmp4praser.setOnClickListener(this);
@@ -139,6 +143,8 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
             intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
             intent.addCategory(Intent.CATEGORY_DEFAULT);
             startActivity(intent);
+        } else if (i == R.id.mywatch_shoot) {
+            ARouter.getInstance().build(ARouteContants.ModuleMain.MY_CAMERA_ACTIVITY).navigation();
         } else if (i == R.id.watch_shoot) {
             Intent intent = new Intent();
             // 指定开启系统相机的Action

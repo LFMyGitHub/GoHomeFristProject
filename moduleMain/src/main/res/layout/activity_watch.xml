@@ -17,6 +17,12 @@
             android:text="调用系统相机拍摄视频" />
 
         <Button
+            android:id="@+id/mywatch_shoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义相机拍摄视频" />
+
+        <Button
             android:id="@+id/watch_photo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

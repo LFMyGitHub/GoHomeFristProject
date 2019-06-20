@@ -12,7 +12,8 @@
         </activity>
         <activity android:name=".activity.DialogActivity" />
         <activity android:name=".activity.WatchActivity" />
-        <activity android:name=".activity.MyWatchActivity"></activity>
+        <activity android:name=".activity.MyWatchActivity" />
+        <activity android:name=".activity.JsonActivity"></activity>
     </application>
 
 </manifest>
