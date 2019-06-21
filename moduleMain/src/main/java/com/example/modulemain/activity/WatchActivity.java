@@ -168,6 +168,8 @@ public class WatchActivity extends AppCompatActivity implements View.OnClickList
                     .showVideo(true)//设置是否展示视频
                     .showVideo(true)//设置是否展示视频
                     .setSingleType(true)//设置图片视频不能同时选择
+                    .setMinxDuration(3)
+                    .setMaxDuration(15)//设置视频过滤
                     .setMaxCount(9)//设置最大选择图片数目(默认为1，单选)
                     .setImagePaths(mImagePaths)//保存上一次选择图片的状态，如果不需要可以忽略
                     .setImageLoader(new GlideLoader(this))//设置自定义图片加载器

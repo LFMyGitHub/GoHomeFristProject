@@ -43,5 +43,5 @@ dependencies {
     //ARouter阿里路由
     api 'com.alibaba:arouter-api:1.4.1'
     //图片视频选择器
-    api 'com.lcw.library:imagepicker:2.2.1'
+    api 'com.github.LFMyGitHub:ImagePicker:2.0.1'
 }
